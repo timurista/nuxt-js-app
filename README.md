@@ -1,4 +1,4 @@
-# nuxt-app
+# Demo App using Nuxtjs and Vue
 
 > My unreal Nuxt.js project
 
@@ -18,5 +18,7 @@ $ yarn start
 # generate static project
 $ yarn run generate
 ```
+
+Initially this was created by `create-vue-app` cli
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
