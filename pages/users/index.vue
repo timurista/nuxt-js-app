@@ -1,6 +1,7 @@
 <template>
   <div>
-    <input type="text" v-model="userId" >
+    <h2>Slug</h2>
+    <input type="text" v-model="userSlug" >
     <button @click="onLoadUser">Load User</button>
   </div>
 </template>
@@ -9,12 +10,12 @@
 export default {
   data() {
     return {
-      userId: ''
+      userSlug: ''
     }
   },
   methods: {
     onLoadUser() {
-      this.$router.push('/users/'+this.userId)
+      this.$router.push('/users/'+this.userSlug)
     }
   }
 }
