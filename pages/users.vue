@@ -18,6 +18,7 @@ export default {
     onLoadUser() {
       this.$router.push('/users/'+this.userSlug)
     }
-  }
+  },
+  layout: 'users'
 }
 </script>
