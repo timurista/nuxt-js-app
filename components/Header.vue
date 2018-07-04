@@ -21,7 +21,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #0b0b0b;
+  background-color: #aaa;
 }
 
 .nav-items {
@@ -39,6 +39,12 @@
 }
 
 .nav-items a {
+  color: #222;
+  text-decoration: none;
+}
+
+.nav-items a:hover,
+.nav-items a:active {
   color: #fff;
   text-decoration: none;
 }
