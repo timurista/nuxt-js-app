@@ -1,5 +1,6 @@
 <template>
   <div>
+      Whoa you found an old page...
       <h2>Products</h2>
       <ul>
         <li key="1">
