@@ -1,6 +1,9 @@
 <template>
   <div>
-    <Header />
+    <Header @sidenavToggle="displaySidenav = !displaySidenav" />
+    <Sidenav
+      :show="displaySidenav"
+      @close="displaySidenav = false" />
     <nuxt/>
   </div>
 </template>
@@ -57,11 +60,17 @@ body {
 </style>
 
 <script>
-import Header from '~/components/Header.vue'
+import Header from '@/components/Navigation/Header'
+import Sidenav from '@/components/Navigation/Sidenav'
+
 
 export default {
   components: {
     Header,
+    Sidenav
+  },
+  data() {
+    return { displaySidenav: false, }
   }
 }
 </script>
