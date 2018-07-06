@@ -5,32 +5,22 @@
     <h1>Get the latest news!</h1>
   </section>
   <section class="featured-posts">
-    <nuxt-link :to="'/posts/' + 1" class="post-preview">
-        <article >
-          <div class="post-thumbnail"></div>
-          <div class="post-content">
-            <h1 class="post-title">
-              Title
-            </h1>
-            <p>Preview text...</p>
-          </div>
-        </article>
-      </nuxt-link>
-
-      <nuxt-link :to="'/posts/' + 2"  class="post-preview">
-        <article>
-          <div class="post-thumbnail"></div>
-          <div class="post-content">
-            <h1 class="post-title">
-              Title 2
-            </h1>
-            <p>Preview text 2...</p>
-          </div>
-        </article>
-      </nuxt-link>
+    <PostPreview id="1" thumbnail="https://www.thoughtco.com/thmb/DF3Q0T5_0O5CmGBTCWCBTcyGgmw=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/JavaScript-58acbb8a3df78c345bad32c2.jpg" title="hello there" previewText="this is my preview text..." />
+    <PostPreview id="2" thumbnail="https://www.thoughtco.com/thmb/DF3Q0T5_0O5CmGBTCWCBTcyGgmw=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/JavaScript-58acbb8a3df78c345bad32c2.jpg" title="hello there second time" previewText="this is my 2 preview text..." />
+    <PostPreview id="3" thumbnail="https://www.thoughtco.com/thmb/DF3Q0T5_0O5CmGBTCWCBTcyGgmw=/768x0/filters:no_upscale():max_bytes(150000):strip_icc()/JavaScript-58acbb8a3df78c345bad32c2.jpg" title="hello there third time" previewText="this is my 3 preview text..." />
   </section>
   </div>
 </template>
+
+<script>
+  import PostPreview from '@/components/Posts/PostPreview';
+  export default {
+    components: {
+      PostPreview
+    }
+  }
+</script>
+
 
 <style scoped>
 .intro {
@@ -72,39 +62,5 @@
   justify-content: center;
 }
 
-.post-preview {
-  border: 1px solid #ccc;
-  box-shadow: 0 2px 2px #ccc;
-  background-color: white;
-  width: 90%;
-}
 
-a {
-  text-decoration: none;
-  color: black;
-}
-
-@media (min-width: 850px) {
-  .post-preview {
-    width: 400px;
-    margin: 10px;
-  }
-}
-
-.post-thumbnail {
-  width: 100%;
-  height: 200px;
-  background-position: center;
-  background-size: cover;
-}
-
-.post-content {
-  padding: 10px;
-  text-align: center;
-}
-
-a:hover .post-content,
-a:active .post-content {
-  background-color: #ccc;
-}
 </style>
