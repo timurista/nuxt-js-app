@@ -16,6 +16,14 @@ You have a layout which is a frame in nuxt that hold each page inside of it. Sty
 More on Routing in Nuxt: https://nuxtjs.org/guide/routing
 More on Views, Layouts etc: https://nuxtjs.org/guide/views
 
+## Vue Router vs Nuxt Router
+
+nuxt link active is determined by url you are on and path you are pointing to.
+`/posts` will return 
+
+nuxt-router is an extension of vue-router
+nuxt-link can be used just like vue-router page.
+
 
 
 
