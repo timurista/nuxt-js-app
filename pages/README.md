@@ -28,3 +28,9 @@ nuxt-link can be used just like vue-router page.
 
 
 More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/routing).
+
+
+## Adding dynamic data
+
+PostList needs to accept list of posts objects and we loop through it.
+
