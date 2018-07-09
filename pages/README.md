@@ -44,4 +44,7 @@ However if you navigate to another page then back, you will see that message fir
 
 asyncData always something we wait for, but only runs on server when it runs first time.
 
+## Context
+process.client to indciate whether on client side
+and isServer. We also have params to parse url, instead of the route object. Redirect function to redirect user, and access to store. 
 
