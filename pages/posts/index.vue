@@ -1,14 +1,19 @@
 <template>
   <div class="posts-page">
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
 <script>
   import PostList from '@/components/Posts/PostList';
+  import { loadedPosts } from '@/mocks/post-data';
+
   export default {
     components: {
       PostList
+    },
+    asyncData(context, cb) {
+      setTimeout(cb(null, { loadedPosts }), 500)
     }
   }
 </script>
