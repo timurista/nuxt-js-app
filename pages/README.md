@@ -48,3 +48,11 @@ asyncData always something we wait for, but only runs on server when it runs fir
 process.client to indciate whether on client side
 and isServer. We also have params to parse url, instead of the route object. Redirect function to redirect user, and access to store. 
 
+## Promise error handling
+
+if your asyncData function return a promise, you can do the following
+
+```js
+new Promise(...).catch(e => context.error(e))
+```
+to catch errors
