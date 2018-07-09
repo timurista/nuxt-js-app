@@ -34,3 +34,14 @@ More information about the usage of this directory in [the documentation](https:
 
 PostList needs to accept list of posts objects and we loop through it.
 
+## asyncData
+like getInititalProps, this is your server-side hook before the page loads
+- note that once you run the page on the server, it will fire first event there
+`asyncData() => consol.log('asyncData executed')`
+this will show up in terminal
+
+However if you navigate to another page then back, you will see that message fire up in the console because now you are in the context of a SPA single page app.
+
+asyncData always something we wait for, but only runs on server when it runs first time.
+
+
