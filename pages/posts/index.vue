@@ -12,8 +12,14 @@
     components: {
       PostList
     },
-    asyncData(context, cb) {
-      setTimeout(cb(null, { loadedPosts }), 500)
+    asyncData(context) {
+      return new Promise((resolve, reject) => {
+        setTimeout(resolve({ loadedPosts }), 500)
+      })
+      .then( data => data)
+      .catch(e => {
+        context.error(new Error());
+      });
     }
   }
 </script>
