@@ -16,16 +16,9 @@ export default {
   components: {
     PostList
   },
-  asyncData(context, cb) {
-    // not like createdAt which renders when page loads
-    // runs before object / page is created
-    setTimeout(() => {
-      cb(null, { loadedPosts });
-    }, 500);
-  },
-  data() {
-    return {
-      loadedPosts:  this.loadedPosts
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts
     }
   },
 }

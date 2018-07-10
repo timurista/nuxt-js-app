@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import { loadedPosts } from '~/mocks/post-data'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -11,6 +12,14 @@ const createStore = () => {
       }
     },
     actions: {
+      nuxtServerInit(vueContext, context) {
+          return new Promise((resolve, reject) => {
+            setTimeout(() => {
+              vueContext.commit('setPosts', loadedPosts)
+              resolve();
+            }, 500)
+          })
+      },
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts)
       }

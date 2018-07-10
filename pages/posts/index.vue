@@ -12,18 +12,21 @@
     components: {
       PostList
     },
-    asyncData(context) {
-      return new Promise((resolve, reject) => {
-        setTimeout(resolve({ loadedPosts }), 500)
-      })
-      .then( data => data)
-      .catch(e => {
-        context.error(new Error());
-      });
-    },
-    created() {
-      this.$store.dispatch('setPosts', this.loadedPosts);
-      console.log(this.$store.getters.loadedPosts)
+    // fetch(context) {
+    //   return new Promise((resolve, reject) => {
+    //     setTimeout(resolve({ loadedPosts }), 500)
+    //   })
+    //   .then( data => {
+    //     context.store.commit('setPosts', data.loadedPosts)
+    //   })
+    //   .catch(e => {
+    //     context.error(e);
+    //   });
+    // },
+    computed: {
+      loadedPosts() {
+        return this.$store.getters.loadedPosts
+      }
     }
   }
 </script>
