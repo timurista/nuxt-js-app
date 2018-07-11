@@ -1,4 +1,5 @@
 import Vuex from 'vuex';
+import axios from 'axios';
 import { loadedPosts } from '~/mocks/post-data'
 
 const createStore = () => {
@@ -13,12 +14,15 @@ const createStore = () => {
     },
     actions: {
       nuxtServerInit(vueContext, context) {
-          return new Promise((resolve, reject) => {
-            setTimeout(() => {
-              vueContext.commit('setPosts', loadedPosts)
-              resolve();
-            }, 500)
+        return axios.get('https://nuxt-blog-15316.firebaseio.com/posts.json')
+          .then(res => {
+            const postsArray = [];
+            for (const key in res.data) {
+              postsArray.push({ ...res.data[key], id: key })
+            }
+            vueContext.commit('setPosts', postsArray)
           })
+          .catch(e => context.error(e))
       },
       setPosts(vuexContext, posts) {
         vuexContext.commit('setPosts', posts)
