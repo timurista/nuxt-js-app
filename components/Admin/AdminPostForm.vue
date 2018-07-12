@@ -17,7 +17,7 @@
     <AppButton type="submit">Save</AppButton>
 
     <AppButton
-      type="submit"
+      type="button"
       style="margin-left: 10px"
       btn-style="cancel"
       @click="onCancel"
@@ -56,7 +56,6 @@ export default {
       this.$emit('submit', this.editedPost)
     },
     onCancel() {
-      console.log('nav back')
       this.$router.push('/admin')
     }
   },
