@@ -16,16 +16,13 @@ export default {
   },
   asyncData(context) {
     return axios.get(`https://nuxt-blog-15316.firebaseio.com/posts/${context.params.postId}.json`)
-      .then( res => ({ editedPost: res.data }))
+      .then( res => ({ editedPost: { ...res.data, id: context.params.postId } }))
       .catch(e => context.error(e))
   },
   methods: {
     onSubmitted(editedPost) {
-      axios.put(`https://nuxt-blog-15316.firebaseio.com/posts/${this.$route.params.postId}.json`, editedPost)
-        .then(res => {
-          this.$router.push('/admin')
-        })
-        .catch(e => {
+      this.$store.dispatch('editPost', editedPost)
+        .then(() => {
           this.$router.push('/admin')
         })
     }
