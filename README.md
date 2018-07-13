@@ -28,3 +28,9 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 you can update title and description in config to see
 
 on any PAGE component you can add `head` property and set the title
+
+## Loading indicator
+You can change the color, height and duration. And also failedColor, to tweak that loading bar.
+
+## Build Setting
+you can fine toon everything
