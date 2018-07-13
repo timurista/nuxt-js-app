@@ -23,7 +23,7 @@ export default {
   async asyncData(context) {
     let res;
     try {
-    res = await axios.get(`https://nuxt-blog-15316.firebaseio.com/posts/${context.params.id}.json`)
+      res = await axios.get(`${process.env.FIREBASE_DB}/posts/${context.params.id}.json`)
     } catch(e) {
       context.error(e);
     }
