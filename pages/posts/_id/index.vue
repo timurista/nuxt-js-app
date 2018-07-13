@@ -20,14 +20,19 @@
 import axios from 'axios'
 
 export default {
-  asyncData(context) {
-    return axios.get(`https://nuxt-blog-15316.firebaseio.com/posts/${context.params.id}.json`)
-      .then(res => {
-        return {
-          loadedPost: res.data
-        }
-      })
-      .catch(e => context.error(e))
+  async asyncData(context) {
+    let res;
+    try {
+    res = await axios.get(`https://nuxt-blog-15316.firebaseio.com/posts/${context.params.id}.json`)
+    } catch(e) {
+      context.error(e);
+    }
+    return { loadedPost: res.data }
+  },
+  head() {
+    return {
+      title: `Blog Post - ${this.loadedPost.title}`
+    }
   }
 }
 </script>
