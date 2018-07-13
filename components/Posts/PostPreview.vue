@@ -1,9 +1,11 @@
 <template>
   <nuxt-link :to="postLink" class="post-preview">
     <article >
+      <div class="post-image-container">
       <div
         class="post-thumbnail"
         :style="{backgroundImage: `url('${thumbnail}')`}"></div>
+      </div>
       <div class="post-content">
         <h1 class="post-title">
           {{ title }}
@@ -83,5 +85,17 @@ export default {
   a:hover .post-content,
   a:active .post-content {
     background-color: #ccc;
+  }
+
+  .post-image-container {
+    overflow: hidden;
+  }
+
+  a .post-thumbnail {
+    transition: 500ms ease;
+  }
+
+  a:hover .post-thumbnail {
+    transform: scale(1.2);
   }
 </style>

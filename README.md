@@ -22,3 +22,9 @@ $ yarn run generate
 Initially this was created by `create-vue-app` cli
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+## Nuxt Config
+
+you can update title and description in config to see
+
+on any PAGE component you can add `head` property and set the title
