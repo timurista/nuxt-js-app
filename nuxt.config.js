@@ -22,7 +22,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#FFFFFF' },
+  loading: { color: '#fa923f', duration: 4000 },
 
   /*
   ** Global CSS
@@ -62,5 +62,8 @@ module.exports = {
         })
       }
     }
+  },
+  env: {
+    baseUrl: process.env.FIREBASE_DB
   }
 }
