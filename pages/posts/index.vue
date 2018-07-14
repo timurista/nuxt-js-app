@@ -5,24 +5,10 @@
 </template>
 
 <script>
-  import PostList from '@/components/Posts/PostList';
   import { loadedPosts } from '@/mocks/post-data';
 
   export default {
-    components: {
-      PostList
-    },
-    // fetch(context) {
-    //   return new Promise((resolve, reject) => {
-    //     setTimeout(resolve({ loadedPosts }), 500)
-    //   })
-    //   .then( data => {
-    //     context.store.commit('setPosts', data.loadedPosts)
-    //   })
-    //   .catch(e => {
-    //     context.error(e);
-    //   });
-    // },
+    middleware: 'log',
     computed: {
       loadedPosts() {
         return this.$store.getters.loadedPosts
