@@ -34,3 +34,19 @@ You can change the color, height and duration. And also failedColor, to tweak th
 
 ## Build Setting
 you can fine toon everything
+
+## Config Props
+Router, you can configure some things about view router
+`router`, base path ie my app etc.
+extendRoutes... you can add your own routes
+function
+```
+extendRoutes(routes, resolve) {
+  routes.push({
+    path: '*'
+    component: resolve(__dirname, 'pages/index.vue')
+  })
+}
+```
+
+linkActive to attach it to any active link
