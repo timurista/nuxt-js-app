@@ -50,3 +50,7 @@ extendRoutes(routes, resolve) {
 ```
 
 linkActive to attach it to any active link
+
+## Plugins in Nuxt Config
+
+plugins let you execute some code before app is rendered and mounted. Cumbersome to import them. But right before root view.
