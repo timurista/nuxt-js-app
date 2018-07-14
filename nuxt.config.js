@@ -65,5 +65,9 @@ module.exports = {
   },
   env: {
     baseUrl: process.env.FIREBASE_DB
+  },
+  transition: {
+    name: 'fade',
+    mode: 'out-in'
   }
 }
