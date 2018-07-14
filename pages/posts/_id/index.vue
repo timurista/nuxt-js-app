@@ -17,17 +17,16 @@
 </template>
 
 <script>
-import axios from 'axios'
 
 export default {
   async asyncData(context) {
-    let res;
+    let data;
     try {
-      res = await axios.get(`${process.env.FIREBASE_DB}/posts/${context.params.id}.json`)
+      data = await context.app.$axios.$get(`/posts/${context.params.id}.json`)
     } catch(e) {
       context.error(e);
     }
-    return { loadedPost: res.data }
+    return { loadedPost: data }
   },
   head() {
     return {

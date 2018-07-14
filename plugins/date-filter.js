@@ -22,20 +22,31 @@ const dateFilter = value => {
 const agoFilter = (inputDate) => {
   const now = new Date();
   const date = new Date(inputDate);
-  if (date.getFullYear() !== now.getFullYear()) {
-    return `${now.getFullYear() - date.getFullYear()} years ago`;
-  } else if (date.getMonth() !== now.getMonth()) {
-    return `${now.getMonth() - date.getMonth()} months ago`;
-  } else if (date.getDate() !== now.getDate()) {
-    return `${now.getDate() - date.getDate()} days ago`;
-  } else if (date.getHours() !== now.getHours()) {
-    return `${now.getHours() - date.getHours()} hours ago`;
-  } else if (date.getMinutes() !== now.getMinutes()) {
-    return `${now.getMinutes() - date.getMinutes()} minutes ago`;
-  } else if (date.getSeconds() !== now.getSeconds()) {
-    return `${now.getSeconds() - date.getSeconds()} seconds ago`;
+
+  const years = now.getFullYear() - date.getFullYear();
+  const months = now.getMonth() - date.getMonth();
+  const days = now.getDate() - date.getDate();
+  const hours = now.getHours() - date.getHours();
+  const minutes = now.getMinutes() - date.getMinutes();
+  const seconds = now.getSeconds() - date.getSeconds();
+
+  if (years > 3) {
+    return formatDate(inputDate);
   }
-  return 'some time ago';
+  else if (years) {
+    return `${years} year${ years > 1 ? 's' : ''} ago`;
+  } else if (months) {
+    return `${months} month${ months > 1 ? 's' : ''} ago`;
+  } else if (days) {
+    return `${days} day${ days > 1 ? 's' : ''} ago`;
+  } else if (hours) {
+    return `${hours} hour${ hours > 1 ? 's' : ''} ago`;
+  } else if (minutes) {
+    return `${minutes} minute${ minutes > 1 ? 's' : ''} ago`;
+  } else if (seconds) {
+    return `${seconds} second${ seconds > 1 ? 's' : ''} ago`;
+  }
+  return formatDate(inputDate);
 }
 
 function formatDate(inputDate) {

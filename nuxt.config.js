@@ -1,4 +1,5 @@
 const pkg = require('./package')
+require('dotenv').config()
 
 module.exports = {
   mode: 'universal',
@@ -44,7 +45,12 @@ module.exports = {
   */
   modules: [
     '@nuxtjs/dotenv',
+    '@nuxtjs/axios'
   ],
+
+  axios: {
+    baseURL: process.env.FIREBASE_DB
+  },
 
   /*
   ** Build configuration
