@@ -28,8 +28,6 @@
 </template>
 
 <script>
-import AppButton from '@/components/UI/AppButton';
-import AppControlInput from '@/components/UI/AppControlInput';
 
 export default {
   props: {
@@ -59,8 +57,5 @@ export default {
       this.$router.push('/admin')
     }
   },
-  components: {
-    AppButton, AppControlInput
-  }
 }
 </script>
