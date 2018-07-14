@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import axios from 'axios'
 import AdminPostForm from '@/components/Admin/AdminPostForm'
 export default {
   layout: 'admin',
@@ -15,8 +14,8 @@ export default {
     AdminPostForm
   },
   asyncData(context) {
-    return axios.get(`${process.env.FIREBASE_DB}/posts/${context.params.postId}.json`)
-      .then( res => ({ editedPost: { ...res.data, id: context.params.postId } }))
+    return context.app.$axios.$get(`/posts/${context.params.postId}.json`)
+      .then( data => ({ editedPost: { ...data, id: context.params.postId } }))
       .catch(e => context.error(e))
   },
   methods: {
