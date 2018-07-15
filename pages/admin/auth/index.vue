@@ -29,22 +29,9 @@ export default {
   },
   methods: {
     onSubmit() {
-      const { email, password } = this;
-
-      let authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.FIREBASE_API_KEY}`
-
-      if (!this.isLogin) {
-        authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.FIREBASE_API_KEY}`;
-      }
-
-      this.$axios.$post(authUrl, {
-        email,
-        password,
-        returnSecureToken: true,
-      })
-      .then(res => console.log(res))
-      .catch(e => console.error(e));
-
+      const { isLogin, password, email } = this;
+      this.$store.dispatch('authenticateUser', { isLogin, password, email })
+        .then(() => this.$router.push('/admin'));
     }
   }
 }

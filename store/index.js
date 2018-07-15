@@ -4,7 +4,8 @@ import { loadedPosts } from '~/mocks/post-data'
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      loadedPosts: []
+      loadedPosts: [],
+      token: null
     },
     mutations: {
       setPosts(state, posts) {
@@ -18,6 +19,9 @@ const createStore = () => {
           post => post.id === editedPost.id
         );
         state.loadedPosts[postIndex] = editedPost;
+      },
+      setAuthToken(state, token) {
+        state.token = token;
       }
     },
     actions: {
@@ -49,6 +53,24 @@ const createStore = () => {
           vuexContext.commit('editPost', editedPost);
         })
         .catch(e => console.log(e))
+      },
+      authenticateUser(vueContext, authData) {
+        const { email, password, isLogin } = authData;
+
+        let authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/verifyPassword?key=${process.env.FIREBASE_API_KEY}`
+
+        if (!isLogin) {
+          authUrl = `https://www.googleapis.com/identitytoolkit/v3/relyingparty/signupNewUser?key=${process.env.FIREBASE_API_KEY}`;
+        }
+
+        return this.$axios.$post(authUrl, {
+          email,
+          password,
+          returnSecureToken: true,
+        })
+        .then(res => vueContext.commit('setAuthToken', res.idToken))
+        .catch(e => console.error(e));
+
       }
     },
     getters: {
