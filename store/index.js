@@ -1,5 +1,6 @@
 import Vuex from 'vuex';
 import { loadedPosts } from '~/mocks/post-data'
+import Cookie from 'js-cookie'
 
 const createStore = () => {
   return new Vuex.Store({
@@ -77,6 +78,8 @@ const createStore = () => {
           vuexContext.commit('setAuthToken', res.idToken)
           localStorage.setItem('token')
           localStorage.setItem('tokenExpiration', tokenExpirationTime)
+          Cookie.set('jwt', res.idToken)
+          Cookie.set('expirtationDate', tokenExpirationTime)
           vuexContext.dispatch('setLogoutTimer', expiresInMillis)
         })
         .catch(e => console.error(e));
@@ -86,12 +89,32 @@ const createStore = () => {
           vuexContext.commit('clearAuthToken')
         }, duration);
       },
-      initAuth(vueContext) {
-        const token = localStorage.getItem('token')
-        const expirationDate = localStorage.getItem('tokenExpiration')
-        if (new Date().getTime() > +expirationDate || !token) {
-          return;
+      initAuth(vueContext, req) {
+        let token;
+        let expirationDate;
+        if (req) {
+          if(!req.headers.cookie) {
+            return;
+          }
+          const jwtCookie = req.headers.cookie
+            .split(';')
+            .find(c => c.trim().startsWith('jwt='));
+          if (!jwtCookie) return;
+          token = jwtCookie.split('=')[1];
+
+          expirationDate = req.headers.cookie
+          .split(';')
+          .find(c => c.trim().startsWith('expirationDate='))
+          .split('=')[1];
+
+        } else {
+          token = localStorage.getItem('token')
+          expirationDate = localStorage.getItem('tokenExpiration')
+          if (new Date().getTime() > +expirationDate || !token) {
+            return;
+          }
         }
+
         vuexContext.commit('setLogoutTimer', +expirationDate - new Date().getTime())
         vuexContext.commit('setAuthToken', token);
       }

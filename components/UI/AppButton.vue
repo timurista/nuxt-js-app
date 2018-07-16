@@ -1,8 +1,8 @@
 <template>
   <button
-    class="button"
     :class="btnStyle"
     v-bind="$attrs"
+    class="button"
     v-on="$listeners"><slot /></button>
 </template>
 

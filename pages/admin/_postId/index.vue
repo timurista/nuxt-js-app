@@ -1,7 +1,9 @@
 <template>
   <div class="admin-post-page">
     <section class="update-form">
-      <AdminPostForm :post="editedPost"  @submit="onSubmitted"/>
+      <AdminPostForm
+        :post="editedPost"
+        @submit="onSubmitted"/>
     </section>
   </div>
 </template>

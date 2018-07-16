@@ -10,7 +10,7 @@
         </li>
       </ul>
     </nav>
-    </header>
+  </header>
 </template>
 
 <style scoped>

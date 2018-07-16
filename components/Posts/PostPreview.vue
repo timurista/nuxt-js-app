@@ -1,10 +1,12 @@
 <template>
-  <nuxt-link :to="postLink" class="post-preview">
+  <nuxt-link
+    :to="postLink"
+    class="post-preview">
     <article >
       <div class="post-image-container">
-      <div
-        class="post-thumbnail"
-        :style="{backgroundImage: `url('${thumbnail}')`}"></div>
+        <div
+          :style="{backgroundImage: `url('${thumbnail}')`}"
+          class="post-thumbnail" />
       </div>
       <div class="post-content">
         <h1 class="post-title">

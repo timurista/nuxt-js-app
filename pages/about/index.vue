@@ -1,5 +1,5 @@
 <template>
-  <div class="about-page"></div>
+  <div class="about-page">About Me</div>
 </template>
 
 <style scoped>
