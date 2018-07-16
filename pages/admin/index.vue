@@ -16,6 +16,13 @@
 export default {
   layout: 'admin',
   middleware: ['check-auth', 'auth'],
+  props: {
+    isAdmin: {
+      required: false,
+      type: Boolean,
+      default: false,
+    }
+  },
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts
