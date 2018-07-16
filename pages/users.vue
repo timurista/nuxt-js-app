@@ -1,7 +1,9 @@
 <template>
   <div>
     <h2>Slug</h2>
-    <input type="text" v-model="userSlug" >
+    <input
+      v-model="userSlug"
+      type="text" >
     <button @click="onLoadUser">Load User</button>
     <nuxt-child />
   </div>

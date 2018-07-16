@@ -5,13 +5,13 @@
     <AppControlInput v-model="editedPost.thumbnail">Thumbnail</AppControlInput>
 
     <AppControlInput
-      control-type="textarea"
-      v-model="editedPost.content">Content
+      v-model="editedPost.content"
+      control-type="textarea">Content
     </AppControlInput>
 
     <AppControlInput
-      control-type="textarea"
-      v-model="editedPost.previewText">Preview Text
+      v-model="editedPost.previewText"
+      control-type="textarea">Preview Text
     </AppControlInput>
 
     <AppButton type="submit">Save</AppButton>
@@ -34,6 +34,7 @@ export default {
     post: {
       type: Object,
       required: false,
+      default: null
     }
   },
   data() {

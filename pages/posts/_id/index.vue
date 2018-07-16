@@ -13,7 +13,7 @@
         <a href="mailto:timurista@my-domain.com">timurista@my-domain.com</a>
       </p>
     </section>
-    </div>
+  </div>
 </template>
 
 <script>
