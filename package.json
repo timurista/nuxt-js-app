@@ -21,12 +21,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^8.2.1",
+    "body-parser": "^1.18.3",
     "cross-env": "^5.0.1",
     "eslint": "^4.15.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-loader": "^2.0.0",
     "eslint-plugin-prettier": "^2.6.2",
     "eslint-plugin-vue": "^4.0.0",
+    "express": "^4.16.3",
     "prettier": "^1.13.7"
   }
 }
