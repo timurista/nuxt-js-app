@@ -54,3 +54,24 @@ linkActive to attach it to any active link
 ## Plugins in Nuxt Config
 
 plugins let you execute some code before app is rendered and mounted. Cumbersome to import them. But right before root view.
+
+## Universal vs SPA
+First view rendered dynamically on the server
+after first load, app turns into spa
+great for seo
+NODE JS needed
+
+## SPA
+app starts on first load
+app stays spa
+like normal vue app but simplified development
+Static Host needed like s3
+
+## static app
+pre-rendered views loaded
+after first load, app turns into SPA
+great for seo
+- static host needed
+- with content, prepopulated files
+
+
