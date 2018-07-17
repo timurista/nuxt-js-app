@@ -13,7 +13,7 @@ router.use((req, res, next) => {
 
 router.post('/track-data', (req, res) => {
   console.log('stored data!', req.body)
-  res.send(200).json({ message: 'success!'})
+  res.sendStatus(200).json({ message: 'success!'})
 })
 
 module.exports = {

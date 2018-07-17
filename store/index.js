@@ -80,6 +80,7 @@ const createStore = () => {
           localStorage.setItem('tokenExpiration', tokenExpirationTime)
           Cookie.set('jwt', res.idToken)
           Cookie.set('expirtationDate', tokenExpirationTime)
+          return this.$axios.$post(process.env.TRACK_API, {data: 'Authenticated'})
         })
         .catch(e => console.error(e));
       },
