@@ -20,6 +20,11 @@
 
 export default {
   async asyncData(context) {
+    if (context.payload) {
+      return {
+        loadedPost: context.payload.postData
+      }
+    }
     let data;
     try {
       data = await context.app.$axios.$get(`/posts/${context.params.id}.json`)
