@@ -74,4 +74,6 @@ great for seo
 - static host needed
 - with content, prepopulated files
 
+## Yarn generate
+generates all pages with a folder for each page
 
